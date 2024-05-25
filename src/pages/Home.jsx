@@ -44,11 +44,11 @@ function Home() {
                 <section className="mb-16">
                     <div className="mb-6.5">
                         <div className="max-w-[96%] mx-[4%]">
-                            <h2 className="text-3xl leading-[0.94] text-center font-bold font-proxima-nova uppercase text-green-700 mb-2">
+                            <h2 className="text-3xl leading-[1] text-center font-bold font-proxima-nova uppercase text-green-700 mb-2">
                                 How it works
                             </h2>
-                            <div className="max-w-[700px] flex ml-[220px]">
-                                <p className="font-light leading-[1.5] text-center mb-7 mt-5">
+                            <div className="max-w-[96%] mx-[4%] mt-3 font-light leading-[1.5] text-center">
+                                <p className="max-w-[96%] mx-[4%] mt-6 font-light leading-[1.5] text-center mb-6">
                                     Solving climate change requires reducing carbon emissions. When you offset your footprint, you neutralize your emissions by protecting forests that absorb carbon from the atmosphere.
                                 </p>
                             </div>

@@ -1,6 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import Calculate from "./Calculate";
+import { PieChart} from '@mui/x-charts/PieChart';
+import { LineChart } from "@mui/x-charts";
 
 function Result() {
 
@@ -12,7 +14,7 @@ function Result() {
             <main className="bg-white block">
 
                 {/* first section */}
-                <section className="bg-[url('../../public/images/forests-main.png')] bg-center bg-no-repeat bg-cover w-full bg-white text-white mb-16 ">
+                <section className="bg-[url('../../public/images/forests-main.png')] bg-center bg-no-repeat bg-cover w-full bg-white text-white mb-24 ">
                     <div className="flex flex-row mx-auto px-0 text-white">
                         <div className=" px-[4%] py-[40px] pb-[20px] text-center">
                             <h2 className="text-4xl leading-[1] uppercase mb-11 max-w-[400px] mx-auto block my-[0.83em] text-center isolate shadow-lg font-bold ">
@@ -63,9 +65,39 @@ function Result() {
 
                 {/* second section */}
                 {/* insert some comparison data here */}
+                <section className="mb-24 bg-white">
+
+                    <div className="text-3xl text-center text-green-700 font-bold uppercase mb-20">
+                        How Do You Compare ? 
+                    </div>
+
+                    <div>
+                    <PieChart 
+                        className=" text-center flex flex-row mb-22 mt-22"
+                        colors={["lightgreen, green"]}
+                        series={[
+                            {
+                                data :[
+                                    { id : 0, value : carbonFootprint, label:'Your carbon footprint', color : 'lightgreen'},
+                                    { id : 1, value : 7000, label : 'Average world person footprint', color : 'green' },
+                                ] ,
+                                innerRadius: 120,
+                                outerRadius: 150,
+                                paddingAngle: 5,
+                                cornerRadius: 5,
+                
+                            }
+                        ]}
+                        width={1000}
+                        height={300}
+                    />
+
+                    </div>
+                </section>
+
 
                 {/* third section */}
-                <section className="mb-16 bg-white">
+                <section className="mb-24 bg-white">
                     <div className=" mx-4 block">
                         <div className="mb-6">
                             <h2 className="text-3xl leading-tight text-center uppercase text-green-700 mb-2 font-bold">
@@ -161,7 +193,6 @@ function Result() {
                 </section>
 
 
-
                 {/* fourth section */}
                 <section className="mb-2 bg-white block isolate">
                     <div className="mb-6">
@@ -188,6 +219,7 @@ function Result() {
                         </div>
                     </div>
                 </section>
+
 
                 {/* fifth section */}
                 <section className="bg-white">

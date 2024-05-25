@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import { PieChart } from "@mui/x-charts";
 
 function Result() {
 
@@ -60,8 +61,38 @@ function Result() {
                     </div>
                 </section>
 
+
                 {/* second section */}
                 {/* insert some comparison data here */}
+                <section className="mb-24 bg-white">
+
+                    <div className="text-3xl text-center text-green-700 font-bold uppercase mb-20">
+                        How Do You Compare ? 
+                    </div>
+
+                    <div>
+                    <PieChart 
+                        className=" text-center flex flex-row mb-22 mt-22"
+                        colors={["lightgreen, green"]}
+                        series={[
+                            {
+                                data :[
+                                    { id : 0, value : carbonFootprintCalculated, label:'Your carbon footprint', color : 'lightgreen'},
+                                    { id : 1, value : 48000, label : 'Average world footprint', color : 'green' },
+                                ] ,
+                                innerRadius: 120,
+                                outerRadius: 150,
+                                paddingAngle: 5,
+                                cornerRadius: 5,
+                
+                            }
+                        ]}
+                        width={1000}
+                        height={300}
+                    />
+
+                    </div>
+                </section>
 
 
                 {/* third section */}
