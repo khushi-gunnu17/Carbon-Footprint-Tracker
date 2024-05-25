@@ -53,7 +53,7 @@ function Calculate() {
                 </p>
             </div>
 
-            <div className="text-center m-6 mt-24 text-4xl font-semibold font-sans">For a Year : </div>
+            <div className="text-center m-6 mt-24 text-4xl font-semibold font-sans">For a month : </div>
 
             <div className="relative flex items-top justify-center min-h-[400px] bg-white sm:items-center sm:pt-0">
                 
