@@ -70,7 +70,7 @@ function Calculate() {
                 carbonFootprint: footprint,
                 requiredToucanTokens: requiredTokens,
                 cost: totalCost,
-        },
+            },
         });
     };
 
