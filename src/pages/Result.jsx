@@ -21,7 +21,7 @@ function Result() {
                             </h2>
 
                             <div className="bg-[url('../../public/images/results-tree.78168e82.png')] bg-top bg-no-repeat bg-contain h-[182px] mx-auto mb-4 max-w-full relative w-[291px] text-center">
-                                <p className="absolute top-[38%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 leading-[1.33] px-[22px] w-full block my-[1em] mx-0 text-center isolate">
+                                <p className="absolute top-[30%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 leading-[1.33] px-[22px] w-full block my-[1em] mx-0 text-center isolate">
                                     Deforestation contributes nearly 10% of global carbon emissions.
                                 </p>
                             </div>

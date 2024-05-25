@@ -5,6 +5,8 @@ function Home() {
     return (
         <div>
             <main className="bg-white block">
+
+                {/* first section */}
                 <section className="pt-12">
                     <div className="w-full mx-4 mb-16">
                         <div className="mb-26">
@@ -38,6 +40,7 @@ function Home() {
                     </div>
                 </section>
 
+                {/* second section */}
                 <section className="mb-16">
                     <div className="mb-6.5">
                         <div className="max-w-[96%] mx-[4%]">
@@ -73,6 +76,7 @@ function Home() {
                     </div>
                 </section>
 
+                {/* third section */}
                 <section className="mb-16">
                     <div className="max-w-[96%] mx-[4%]">
                         <div className="mb-6.5">
@@ -132,6 +136,7 @@ function Home() {
                     </div>
                 </section>
 
+                {/* fourth section */}
                 <section className="mb-2 bg-white block isolate">
                     <div className="mb-6">
                         <h2 className="text-4xl leading-[0.94] font-bold text-center uppercase text-[#4bc36b]">More About this Calculator</h2>
@@ -158,6 +163,7 @@ function Home() {
                     </div>
                 </section>
 
+                {/* fifth section */}
                 <section className="bg-white">
                     <div className="bg-[url('../../public/images/green-field.jpg')] relative bg-cover bg-no-repeat bg-center w-full h-[700px] bg-blue-800 flex flex-col">
                         <div className="max-w-[600] mx-auto flex flex-row justify-content align-center  gap-x-28 p-0">
