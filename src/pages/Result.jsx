@@ -1,13 +1,11 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import Calculate from "./Calculate";
 import { PieChart} from '@mui/x-charts/PieChart';
-import { LineChart } from "@mui/x-charts";
 
 function Result() {
 
     const location = useLocation()
-    const { carbonFootprint } = location.state || { carbonFootprint : null }
+    const { carbonFootprint, requiredToucanTokens, cost } = location.state || { carbonFootprint : null, requiredToucanTokens: null, cost: null }
 
     return (
         <div>
@@ -63,8 +61,8 @@ function Result() {
                     </div>
                 </section>
 
+
                 {/* second section */}
-                {/* insert some comparison data here */}
                 <section className="mb-24 bg-white">
 
                     <div className="text-3xl text-center text-green-700 font-bold uppercase mb-20">
@@ -74,12 +72,12 @@ function Result() {
                     <div>
                     <PieChart 
                         className=" text-center flex flex-row mb-22 mt-22"
-                        colors={["lightgreen, green"]}
+                        colors={["lightgreen", "green"]}
                         series={[
                             {
                                 data :[
                                     { id : 0, value : carbonFootprint, label:'Your carbon footprint', color : 'lightgreen'},
-                                    { id : 1, value : 7000, label : 'Average world person footprint', color : 'green' },
+                                    { id : 1, value : 7000, label : "Average person's carbon footprint", color : 'green' },
                                 ] ,
                                 innerRadius: 120,
                                 outerRadius: 150,
@@ -96,7 +94,22 @@ function Result() {
                 </section>
 
 
-                {/* third section */}
+                {/* Third section */}
+                {/* Toucan token effect */}
+                <section className="mb-24 bg-white">
+                    <div className="text-3xl text-center text-green-700 font-bold uppercase mb-20">
+                        Neutralize Your Carbon Footprint
+                    </div>
+
+                    <div className="text-center">
+                        <p className="text-xl">To offset your carbon footprint of {carbonFootprint?.toFixed(2)} kg CO<sub>2</sub>e, you would need approximately {requiredToucanTokens?.toFixed(2)} Toucan tokens.</p>
+                        <p className="text-xl">The estimated cost for the required Toucan tokens is ₹{cost?.toFixed(2)}.</p>
+                    </div>
+                </section>
+
+
+
+                {/* fourth section */}
                 <section className="mb-24 bg-white">
                     <div className=" mx-4 block">
                         <div className="mb-6">
@@ -193,7 +206,7 @@ function Result() {
                 </section>
 
 
-                {/* fourth section */}
+                {/* fifth section */}
                 <section className="mb-2 bg-white block isolate">
                     <div className="mb-6">
                         <h2 className="text-4xl leading-[0.94] font-bold text-center uppercase text-[#4bc36b]">More About this Calculator</h2>

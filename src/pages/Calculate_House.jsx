@@ -16,6 +16,10 @@ function Calculate_House() {
     const [waterUsage, setWaterUsage] = useState('')
     const [carbonFootprintCalculated, setCarbonFootprintCalculated] = useState(null);
 
+    const [toucanTokenPrice, setToucanTokenPrice] = useState(0);
+    const [requiredToucanTokensCalculated, setRequiredToucanTokens] = useState(0)
+    const [costCalculated, setCost] = useState(0)
+
 
     const calculateCarbonFootprint = useCallback(() => {
 
@@ -33,16 +37,47 @@ function Calculate_House() {
         (parseFloat(waterUsage) * waterUsageEmissionFactor));
 
         setCarbonFootprintCalculated(totalEmissions)
-
+        return totalEmissions
     }, [energyUsage, transportation, wasteGeneration, foodConsumption, waterUsage])
 
 
-    // handling submitting
+    // Using an API to fetch the current price of Toucan tokens : 
+    async function fetchToucanTokenPrice() {
+        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=toucan-protocol-base-carbon-tonne&vs_currencies=inr')
+        const data = await response.json()
+        return data['toucan-protocol-base-carbon-tonne'].inr;
+    }
+
+    useEffect(() => {
+        fetchToucanTokenPrice().then(price => setToucanTokenPrice(price));
+    }, [])
+
+
+    useEffect(() => {
+        if (carbonFootprintCalculated !== null) {
+            const requiredTokens = carbonFootprintCalculated / 1000;     // 1 token = 1 tCO2e
+            setRequiredToucanTokens(requiredTokens);
+            setCost(requiredTokens * toucanTokenPrice);
+        }
+    }, [carbonFootprintCalculated, toucanTokenPrice]);
+
+
+    // Handle submitting the form
     const handleSubmit = (event) => {
         event.preventDefault();
-        calculateCarbonFootprint()
-        navigate('/result-household', {state : { carbonFootprintCalculated }})
-    }
+        const footprint = calculateCarbonFootprint();
+        const requiredTokens = footprint / 1000; // 1 token = 1 tCO2e
+        const totalCost = requiredTokens * toucanTokenPrice;
+    
+        navigate('/result-household', {
+            state: {
+                carbonFootprintCalculated : footprint,
+                requiredToucanTokensCalculated: requiredTokens,
+                costCalculated : totalCost,
+        },
+        });
+    };
+
 
     return(
         <main>
@@ -192,10 +227,6 @@ function Calculate_House() {
                 </form>
 
             </div>
-
-            
-
-            {/* comparison here  */}
 
         </main>
     )

@@ -13,6 +13,10 @@ function Calculate() {
     const [waterUsage, setWaterUsage] = useState('')
     const [carbonFootprint, setCarbonFootprint] = useState(null);
 
+    const [toucanTokenPrice, setToucanTokenPrice] = useState(0);
+    const [requiredToucanTokens, setRequiredToucanTokens] = useState(0)
+    const [cost, setCost] = useState(0)
+
 
     const calculateCarbonFootprint = useCallback(() => {
         const energyEmissionFactor = 0.0007867;     //  kg CO2e per kWh
@@ -29,16 +33,47 @@ function Calculate() {
         (parseFloat(waterUsage) * waterUsageEmissionFactor);
 
         setCarbonFootprint(totalEmissions)
-
+        return totalEmissions;
     }, [energyUsage, transportation, wasteGeneration, foodConsumption, waterUsage])
 
 
-    // handling submitting
+    // Using an API to fetch the current price of Toucan tokens : 
+    async function fetchToucanTokenPrice() {
+        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=toucan-protocol-base-carbon-tonne&vs_currencies=inr')
+        const data = await response.json()
+        return data['toucan-protocol-base-carbon-tonne'].inr;
+    }
+
+    useEffect(() => {
+        fetchToucanTokenPrice().then(price => setToucanTokenPrice(price));
+    }, [])
+
+
+    useEffect(() => {
+        if (carbonFootprint !== null) {
+            const requiredTokens = carbonFootprint / 1000;     // 1 token = 1 tCO2e
+            setRequiredToucanTokens(requiredTokens);
+            setCost(requiredTokens * toucanTokenPrice);
+        }
+    }, [carbonFootprint, toucanTokenPrice]);
+
+
+    // Handle submitting the form
     const handleSubmit = (event) => {
         event.preventDefault();
-        calculateCarbonFootprint()
-        navigate('/result', {state : { carbonFootprint }})
-    }
+        const footprint = calculateCarbonFootprint();
+        const requiredTokens = footprint / 1000; // 1 token = 1 tCO2e
+        const totalCost = requiredTokens * toucanTokenPrice;
+    
+        navigate('/result', {
+            state: {
+                carbonFootprint: footprint,
+                requiredToucanTokens: requiredTokens,
+                cost: totalCost,
+        },
+        });
+    };
+
 
     return(
         <main>
@@ -160,20 +195,9 @@ function Calculate() {
                         </button>
                     {/* </Link> */}
 
-                    {/* {carbonFootprint !== null && (
-                        <div className="m-8 mt-16 text-center ml-16">
-                            <h2 className="text-3xl font-semibold">
-                                Total Carbon Footprint of you : {carbonFootprint.toFixed(2)} kg C0<sub>2</sub>e
-                            </h2>
-                        </div>
-                    )} */}
                 </form>
 
             </div>
-
-            
-
-            {/* comparison here  */}
 
         </main>
     )

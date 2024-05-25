@@ -5,7 +5,7 @@ import { PieChart } from "@mui/x-charts";
 function Result() {
 
     const location = useLocation()
-    const { carbonFootprintCalculated } = location.state || { carbonFootprintCalculated : null }
+    const { carbonFootprintCalculated, requiredToucanTokensCalculated, costCalculated } = location.state || { carbonFootprintCalculated: null, requiredToucanTokensCalculated: null, costCalculated: null };
 
     return (
         <div>
@@ -73,7 +73,7 @@ function Result() {
                     <div>
                     <PieChart 
                         className=" text-center flex flex-row mb-22 mt-22"
-                        colors={["lightgreen, green"]}
+                        colors={["lightgreen", "green"]}
                         series={[
                             {
                                 data :[
@@ -95,7 +95,21 @@ function Result() {
                 </section>
 
 
-                {/* third section */}
+                {/* Third section */}
+                {/* Toucan token effect */}
+                <section className="mb-24 bg-white">
+                    <div className="text-3xl text-center text-green-700 font-bold uppercase mb-20">
+                        Neutralize Your Carbon Footprint
+                    </div>
+
+                    <div className="text-center">
+                        <p className="text-xl">To offset your carbon footprint of {carbonFootprintCalculated?.toFixed(2)} kg CO<sub>2</sub>e, you would need approximately {requiredToucanTokensCalculated?.toFixed(2)} Toucan tokens.</p>
+                        <p className="text-xl">The estimated cost for the required Toucan tokens is ₹{costCalculated?.toFixed(2)}.</p>
+                    </div>
+                </section>
+
+
+                {/* fourth section */}
                 <section className="mb-16 bg-white">
                     <div className=" mx-4 block">
                         <div className="mb-6">
@@ -192,7 +206,7 @@ function Result() {
                 </section>
 
 
-                {/* fourth section */}
+                {/* fifth section */}
                 <section className="mb-2 bg-white block isolate">
                     <div className="mb-6">
                         <h2 className="text-4xl leading-[0.94] font-bold text-center uppercase text-[#4bc36b]">More About this Calculator</h2>
@@ -219,7 +233,8 @@ function Result() {
                     </div>
                 </section>
 
-                {/* fifth section */}
+
+                {/* sixth section */}
                 <section className="bg-white">
                     <div className="bg-[url('../../public/images/green-field.jpg')] relative bg-cover bg-no-repeat bg-center w-full h-[700px] bg-blue-800 flex flex-col">
                         <div className="max-w-[600] mx-auto flex flex-row justify-content align-center  gap-x-28 p-0">
