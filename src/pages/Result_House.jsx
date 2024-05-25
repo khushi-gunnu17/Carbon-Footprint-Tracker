@@ -14,7 +14,7 @@ function Result() {
                 <section className="bg-[url('../../public/images/forests-main.png')] bg-center bg-no-repeat bg-cover w-full bg-white text-white mb-16 ">
                     <div className="flex flex-row mx-auto px-0 text-white">
                         <div className=" px-[4%] py-[40px] pb-[20px] text-center">
-                            <h2 className="text-4xl leading-[0.94] uppercase mb-11 max-w-[400px] mx-auto block my-[0.83em] text-center isolate shadow-lg font-bold ">
+                            <h2 className="text-4xl leading-[1] uppercase mb-11 max-w-[400px] mx-auto block my-[0.83em] text-center isolate shadow-lg font-bold ">
                                 <div className=" bg-[rgba(100,255,255,0.40)] max-w-[170px] h-[40px] text-center flex align-center justify-center ml-3 mb-4">Result : </div>
                                 Your carbon impact for your household is {carbonFootprintCalculated.toFixed(2)} kg C0<sub>2</sub>e
                             </h2>
@@ -25,7 +25,7 @@ function Result() {
                                 </p>
                             </div>
 
-                            <p className="text-s leading-6 m-0 block my-[1em] mx-0 text-center isolate">
+                            <p className="text-s leading-6 m-0 block my-[1em] mx-0 text-center isolate bg-[rgba(0,0,0,0.35)]">
                                 On average, a hectare of tropical forest stores carbon equating to 550 metric tons of CO
                                 <sub>2</sub>. With annual tropical deforestation rates averaging 0.5%, this results in 2.75 metric tons of CO<sub>2</sub> emitted per hectare each year.
                             </p>
@@ -64,9 +64,104 @@ function Result() {
                 {/* insert some comparison data here */}
 
 
-
-
                 {/* third section */}
+                <section className="mb-16 bg-white">
+                    <div className=" mx-4 block">
+                        <div className="mb-6">
+                            <h2 className="text-3xl leading-tight text-center uppercase text-green-700 mb-2 font-bold">
+                                Tips to decrease your footprint
+                            </h2>
+
+                            <p className="mt-3 mb-16 text-center leading-relaxed">
+                                Decreasing your impact on the climate could be easier than you think.
+                            </p>
+
+
+
+                            <div className="flex align-items justify-center mb-16">
+                                {/* first */}
+                                <div className="flex-col mb-6 text-center mx-16">
+                                    <img  
+                                        src="../../public/images/cow.png"
+                                        alt="animal"
+                                        className="ml-20 h-20 w-20 mb-3 text-center"
+                                    />
+                                    <h3 className="text-lg mb-4 leading-tight font-semibold">Try consuming less meat</h3>
+                                    <p className="mb-1 leading-relaxed text-center text-sm">For every day of the week where you eliminate red meat:</p>
+                                    <p className="mb-1 leading-relaxed text-center font-bold">0.4 metric tons saved annually</p>
+                                </div>
+                                
+                                {/* second */}
+                                <div className="flex-col mb-6 text-center mx-16">
+                                    <img  
+                                        src="../../public/images/mail.png"
+                                        alt="animal"
+                                        className="ml-24 h-20 w-20 mb-3 text-center"
+                                    />
+                                    <h3 className="text-lg mb-4 leading-tight font-semibold">Clean your inbox</h3>
+                                    <p className="mb-1 leading-relaxed text-center text-sm">Delete your archived emails and unsubscribe from junk email:</p>
+                                    <p className="mb-1 leading-relaxed text-center font-bold">0.07 metric tons saved annually</p>
+                                </div>
+                                
+                                {/* third */}
+                                <div className="flex-col mb-6 text-center mx-16">
+                                    <img  
+                                        src="../../public/images/clothes.png"
+                                        alt="animal"
+                                        className="ml-24 h-20 w-20 mb-3 text-center"
+                                    />
+                                    <h3 className="text-lg mb-4 leading-tight font-semibold">Purchase consignment clothing</h3>
+                                    <p className="mb-1 leading-relaxed text-center text-sm">For buying second-hand or consignment for every clothing purchases:</p>
+                                    <p className="mb-1 leading-relaxed text-center font-bold">0.5 metric tons saved annually</p>
+                                </div>
+
+                            </div>
+
+
+                            <div className="flex align-items justify-center mb-16">
+                                {/* fourth */}
+                                 <div className="flex-col mb-6 text-center ml-20 mr-16">
+                                    <img  
+                                        src="../../public/images/tyre.png"
+                                        alt="animal"
+                                        className="ml-16 h-20 w-20 mb-3 text-center"
+                                    />
+                                    <h3 className="text-lg mb-4 leading-tight font-semibold">Keep inflated</h3>
+                                    <p className="mb-1 leading-relaxed text-center text-sm">By keeping your car tires properly inflated:</p>
+                                    <p className="mb-1 leading-relaxed text-center font-bold">0.4 metric tons saved annually</p>
+                                </div>
+
+                                {/* fifth */}
+                                <div className="flex-col mb-6 text-center mx-14">
+                                    <img  
+                                        src="../../public/images/thermostat.png"
+                                        alt="animal"
+                                        className="relative left-[30px] ml-24 h-20 w-20 mb-3 text-center"
+                                    />
+                                    <h3 className="text-lg mb-4 leading-tight font-semibold">Change your thermostat</h3>
+                                    <p className="mb-1 leading-relaxed text-center text-sm">For every degree that you turn down your thermostat in the winter:</p>
+                                    <p className="mb-1 leading-relaxed text-center font-bold">0.06 metric tons saved annually</p>
+                                </div>
+
+                                {/* sixth */}
+                                <div className="flex-col mb-6 text-center mx-16">
+                                    <img  
+                                        src="../../public/images/fuel.png"
+                                        alt="animal"
+                                        className="ml-24 h-20 w-20 mb-3 text-center"
+                                    />
+                                    <h3 className="text-lg mb-4 leading-tight font-semibold">Improve your fuel economy</h3>
+                                    <p className="mb-1 leading-relaxed text-center text-sm">For every 5 km/L you improve the fuel economy of your car:</p>
+                                    <p className="mb-1 leading-relaxed text-center font-bold">0.9 metric tons saved annually</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+
+                {/* fourth section */}
                 <section className="mb-2 bg-white block isolate">
                     <div className="mb-6">
                         <h2 className="text-4xl leading-[0.94] font-bold text-center uppercase text-[#4bc36b]">More About this Calculator</h2>
@@ -93,7 +188,7 @@ function Result() {
                     </div>
                 </section>
 
-                {/* fourth section */}
+                {/* fifth section */}
                 <section className="bg-white">
                     <div className="bg-[url('../../public/images/green-field.jpg')] relative bg-cover bg-no-repeat bg-center w-full h-[700px] bg-blue-800 flex flex-col">
                         <div className="max-w-[600] mx-auto flex flex-row justify-content align-center  gap-x-28 p-0">

@@ -10,7 +10,7 @@ function About() {
                 <section className="bg-[url('../../public/images/forests-main.png')] bg-center bg-no-repeat bg-cover w-full bg-white text-white mb-16 ">
                     <div className="flex flex-row mx-auto px-0 text-white">
                         <div className=" px-[4%] py-[40px] pb-[20px] text-center">
-                            <h2 className="text-4xl leading-[0.94] mb-11 max-w-[400px] mx-auto block my-[0.83em] text-center isolate shadow-lg font-bold ">
+                            <h2 className="text-4xl leading-[1] mb-11 max-w-[400px] mx-auto block my-[0.83em] text-center isolate shadow-lg font-bold ">
                                 CALCULATE YOUR CARBON FOOTPRINT WITH OUR TEAM - TechCodeCrafters
                             </h2>
 
